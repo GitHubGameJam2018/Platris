@@ -133,6 +133,7 @@ public class T_SnapMovement : MonoBehaviour {
             {
                 if (r)
                 {
+                    sm.PlaySFX(sm.audioList[8]);
                     canFall = false;
                     canMove = false;
                     if (PosToCoor(transform.position.x, gs.gridWidth) >= 5)

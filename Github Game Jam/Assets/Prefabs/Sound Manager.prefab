@@ -256,6 +256,7 @@ MonoBehaviour:
   - {fileID: 8300000, guid: 69d4d24e4eff38f4b84c162f644f9d08, type: 3}
   - {fileID: 8300000, guid: 66e8afa9e32b0174fb24a22a63560c5e, type: 3}
   - {fileID: 8300000, guid: 68c71f67ed64428409497ff3859fd62a, type: 3}
+  - {fileID: 8300000, guid: 529813098aec8414a9d21447f91207bd, type: 3}
   package1:
   - {fileID: 8300000, guid: e7059a445adc04c4cb3807bd6dd191e4, type: 3}
   - {fileID: 8300000, guid: e588c009684ae2d459c7dfcf5b276aad, type: 3}
