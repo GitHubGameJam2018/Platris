@@ -1374,6 +1374,7 @@ MonoBehaviour:
   am: {fileID: 24100000, guid: 5224ba3459f78c3449cb7712c158e184, type: 2}
   sfx: {fileID: 2137154870}
   music: {fileID: 853599115}
+  panels: []
 --- !u!1 &1406738045
 GameObject:
   m_ObjectHideFlags: 0

@@ -22,13 +22,17 @@ public class UI : MonoBehaviour {
         {
             if (PlayerPrefs.GetInt("SFX") != 0)
                 sfx.isOn = false;
-            else
+            else if (PlayerPrefs.GetInt("SFX") != 1)
                 sfx.isOn = true;
+            else
+                sfx.isOn = false;
 
             if (PlayerPrefs.GetInt("Music") != 0)
                 music.isOn = false;
-            else
+            else if(PlayerPrefs.GetInt("Music") != 1)
                 music.isOn = true;
+            else
+                music.isOn = false;
         }
     }
 	
