@@ -14,25 +14,25 @@ public class UI : MonoBehaviour {
     public Toggle sfx, music;
     public List<GameObject> panels = new List<GameObject>();
     // Use this for initialization
-    void Start () {
+    void Start() {
         canvas = FindObjectOfType<Canvas>();
-        if(pausePanel)
+        if (pausePanel)
             pausePanel.SetActive(false);
         if (SceneManager.GetActiveScene().buildIndex == 0)
         {
-            if (PlayerPrefs.GetInt("SFX") != 0)
+            if (!PlayerPrefs.HasKey("SFX"))
                 sfx.isOn = false;
             else if (PlayerPrefs.GetInt("SFX") != 1)
                 sfx.isOn = true;
-            else
+            else if(PlayerPrefs.GetInt("SFX") != 0)
                 sfx.isOn = false;
 
-            if (PlayerPrefs.GetInt("Music") != 0)
+            if (!PlayerPrefs.HasKey("Music"))
+                music.isOn = false;
+            else if (PlayerPrefs.GetInt("Music") != 0)
                 music.isOn = false;
             else if(PlayerPrefs.GetInt("Music") != 1)
                 music.isOn = true;
-            else
-                music.isOn = false;
         }
     }
 	
