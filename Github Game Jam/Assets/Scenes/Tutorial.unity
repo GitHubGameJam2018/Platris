@@ -1985,6 +1985,7 @@ MonoBehaviour:
   lineTutPrefab: {fileID: 1622391108438646, guid: 3a2e378f3b4dcdf4e8678c7eaf7f662e,
     type: 2}
   temp: {fileID: 0}
+  respawnObj: {fileID: 1474248680471376, guid: 9a2ade5f3e5e58e4a97ba0160df4b121, type: 2}
   lineObject:
   - {fileID: 1546848191217144, guid: b60c6e11ae7638b4bb1bddbb6a9f1f8a, type: 2}
   - {fileID: 1278304429627364, guid: a27c1361ef0d95a40a256bbe9981a0b8, type: 2}

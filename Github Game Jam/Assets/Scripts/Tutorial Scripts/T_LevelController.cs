@@ -9,7 +9,7 @@ public class T_LevelController : MonoBehaviour {
     public float timer = 0;
     public Text tuts;
     public T_PlayerMovement tpm;
-    public GameObject rotateTutPrefab, swapTutPrefab, lineTutPrefab, temp;
+    public GameObject rotateTutPrefab, swapTutPrefab, lineTutPrefab, temp, respawnObj;
     public List<GameObject> lineObject = new List<GameObject>();
     bool spawned = false;
     public bool dj, gotHit, retry=false;
@@ -175,7 +175,10 @@ public class T_LevelController : MonoBehaviour {
                 T_StoreTetramino.storedMino = -1;
                 T_StoreTetramino.currentMino = -1;
                 FindObjectOfType<T_PlayerMovement>().disableRespawn = false;
+                player.transform.position = new Vector3(-1.5f, -4f, 0);
                 Destroy(temp);
+                temp = Instantiate(respawnObj);
+                spawned = true;
             }
             if (Input.GetKeyDown(KeyCode.R))
             {
@@ -185,7 +188,7 @@ public class T_LevelController : MonoBehaviour {
             }
         }
         if (timer <= 2 && respawnEvent && !makeLineEvent)
-        {
+        {            
             tuts.text = "";
             spawned = false;
             retry = false;
@@ -197,6 +200,7 @@ public class T_LevelController : MonoBehaviour {
             {
                 if (!spawned)
                 {
+                    Destroy(temp);
                     tuts.text = "Tetraminos auto-confirms 3 blocks away.\n\nComplete a row";
                     FindObjectOfType<T_PlayerMovement>().disableRespawn = true;
                     temp = Instantiate(lineTutPrefab);
@@ -228,7 +232,7 @@ public class T_LevelController : MonoBehaviour {
 
         if(makeLineEvent)
         {
-            tuts.text = "Congrats!\nYou are good to go.\npress ESC to return to Menu";
+            tuts.text = "Congrats!\nYou are good to go.\n\npress ESC to return to Menu";
         }
     }
 }

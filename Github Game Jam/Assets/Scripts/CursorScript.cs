@@ -7,8 +7,7 @@ public class CursorScript : MonoBehaviour {
     public float cursorTimer=0;
 	// Use this for initialization
 	void Start () {
-		
-	}
+    }
 	
 	// Update is called once per frame
 	void Update () {

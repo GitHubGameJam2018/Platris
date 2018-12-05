@@ -15,6 +15,7 @@ public class UI : MonoBehaviour {
     public List<GameObject> panels = new List<GameObject>();
     // Use this for initialization
     void Start() {
+        Cursor.visible = true;
         canvas = FindObjectOfType<Canvas>();
         if (pausePanel)
             pausePanel.SetActive(false);
