@@ -54,7 +54,7 @@ public class GridScript : MonoBehaviour
 
         if (rowList.Count > 0)
         {
-            Score.currentScore += 10 * rowList.Count * rowList.Count;
+            Score.currentScore += 100 * rowList.Count * rowList.Count;
             FindObjectOfType<Score>().UpdateText(rowList.Count);
             if (HealthSystem.hp + rowList.Count <= 6)
             {

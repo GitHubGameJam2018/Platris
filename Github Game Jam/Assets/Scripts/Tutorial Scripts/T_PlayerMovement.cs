@@ -126,7 +126,7 @@ public class T_PlayerMovement : MonoBehaviour
 
     void Respawn()
     {
-        if (Input.GetKey(KeyCode.R) && canRespawn && !disableRespawn)
+        if ((Input.GetKey(KeyCode.R) || Input.GetKey(KeyCode.RightShift)) && canRespawn && !disableRespawn)
         {
             Spawn(true);
         }

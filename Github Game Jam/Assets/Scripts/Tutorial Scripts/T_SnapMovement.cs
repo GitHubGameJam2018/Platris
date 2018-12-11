@@ -63,7 +63,7 @@ public class T_SnapMovement : MonoBehaviour {
         }
         if (canDrop && !lockTetramino)
         {
-            if (Input.GetKey(KeyCode.S) && canMakeFall) 
+            if ((Input.GetKey(KeyCode.S) || Input.GetKey(KeyCode.DownArrow)) && canMakeFall) 
             {
                 lockTetramino = true;
                 StartCoroutine(Blink());
@@ -104,7 +104,7 @@ public class T_SnapMovement : MonoBehaviour {
     }
     void Rotate()
     {
-        if (Input.GetKeyDown(KeyCode.W) && canRotate && !lockTetramino)
+        if ((Input.GetKeyDown(KeyCode.W) || Input.GetKeyDown(KeyCode.UpArrow)) && canRotate && !lockTetramino)
         {
             sm.PlaySFX(sm.SFXList[packageNumber][Random.Range(0, sm.SFXList[packageNumber].Count)]);
             transform.Rotate(new Vector3(0, 0, 90));
@@ -223,7 +223,7 @@ public class T_SnapMovement : MonoBehaviour {
    
     void Store()
     {
-        if (Input.GetKeyDown(KeyCode.E) && canStore)
+        if ((Input.GetKeyDown(KeyCode.E) || Input.GetKeyDown(KeyCode.RightControl)) && canStore)
         {
             if (T_StoreTetramino.storedMino == -1)
             {

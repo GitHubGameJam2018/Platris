@@ -18,7 +18,7 @@ public class T_LevelController : MonoBehaviour {
     GridScript g;
     // Use this for initialization
     void Start () {
-        tuts.text = "Press A & D to move";
+        tuts.text = "Press A & D or LEFT ARROW && RIGHT ARROW \nto move";
         gs = FindObjectOfType<GridSize>();
         g = FindObjectOfType<GridScript>();
         FindObjectOfType<T_PlayerMovement>().disableRespawn = true;
@@ -66,7 +66,7 @@ public class T_LevelController : MonoBehaviour {
 
         if (timer > 2 && doubleJumpEvent && !rotateEvent)
         {
-            tuts.text = "Press W to rotate tetramino";
+            tuts.text = "Press W or UP ARROW \nto rotate tetramino";
             if (!spawned)
             {
                 temp = Instantiate(rotateTutPrefab);
@@ -74,7 +74,7 @@ public class T_LevelController : MonoBehaviour {
                 temp.GetComponent<T_SnapMovement>().canRotate = true;
                 spawned = true;
             }
-            if (Input.GetKeyDown(KeyCode.W))
+            if (Input.GetKeyDown(KeyCode.W) || Input.GetKeyDown(KeyCode.UpArrow))
             {
                 FindObjectOfType<T_PlayerMovement>().canMove = true;
                 rotateEvent = true;
@@ -86,11 +86,11 @@ public class T_LevelController : MonoBehaviour {
 
         if (timer > 1 && rotateEvent && ! dropEvent)
         {
-            tuts.text = "Tetramino follows your position.\n\nPress S to confirm drop Location";
+            tuts.text = "Press S or DOWN ARROW \nto confirm drop Location";
             temp.GetComponent<T_SnapMovement>().canMakeFall = true;
             temp.GetComponent<T_SnapMovement>().canDrop = true;
             temp.GetComponent<T_SnapMovement>().canMove = true;
-            if (Input.GetKeyDown(KeyCode.S))
+            if (Input.GetKeyDown(KeyCode.S) || Input.GetKeyDown(KeyCode.DownArrow))
             {
                 dropEvent = true;
                 tuts.text = "";
@@ -103,7 +103,7 @@ public class T_LevelController : MonoBehaviour {
         {
             if (!retry)
             {               
-                tuts.text = "Don't get hit by falling tetraminos.\n\n A & D to move";
+                tuts.text = "Don't get hit by falling tetraminos.\n A & D or LEFT ARROW && RIGHT ARROW \nto move";
                 if (Time.timeScale != 0)
                     Time.timeScale = 0;
 
@@ -140,15 +140,15 @@ public class T_LevelController : MonoBehaviour {
             {
                 Destroy(temp);
                 temp = Instantiate(rotateTutPrefab);
-                tuts.text = "Press E to store the tetramino";
+                tuts.text = "Press E or RCTRL to store the tetramino";
                 temp.GetComponent<T_SnapMovement>().canStore = true;
                 T_StoreTetramino.currentMino = 2;
                 spawned = true;
             }            
-            if(Input.GetKeyDown(KeyCode.E))
+            if(Input.GetKeyDown(KeyCode.E) || Input.GetKeyDown(KeyCode.RightControl))
             {
                 storeEvent = true;
-                tuts.text = "Press E to swap between stored and current tetraminos";
+                tuts.text = "Press E or RCTRL\nto swap between stored and current tetraminos";
                 timer = 0;
                 temp = Instantiate(swapTutPrefab);
             }
@@ -158,7 +158,7 @@ public class T_LevelController : MonoBehaviour {
         {
             temp.GetComponent<T_SnapMovement>().canStore = true;
             T_StoreTetramino.currentMino = 4;
-            if (Input.GetKeyDown(KeyCode.E))
+            if (Input.GetKeyDown(KeyCode.E) || Input.GetKeyDown(KeyCode.RightControl))
             {
                 swapEvent = true;
                 tuts.text = "";
@@ -171,7 +171,7 @@ public class T_LevelController : MonoBehaviour {
         {
             if (!spawned)
             {
-                tuts.text = "You can respawn at the cost of a Health point.\n\nPress R to respawn";
+                tuts.text = "You can respawn at the cost of a Health point.\n\nPress R or RSHIFT to respawn";
                 T_StoreTetramino.storedMino = -1;
                 T_StoreTetramino.currentMino = -1;
                 FindObjectOfType<T_PlayerMovement>().disableRespawn = false;
@@ -180,7 +180,7 @@ public class T_LevelController : MonoBehaviour {
                 temp = Instantiate(respawnObj);
                 spawned = true;
             }
-            if (Input.GetKeyDown(KeyCode.R))
+            if (Input.GetKeyDown(KeyCode.R) || Input.GetKeyDown(KeyCode.RightShift))
             {
                 respawnEvent = true;
                 tuts.text = "";
